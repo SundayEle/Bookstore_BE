@@ -15,7 +15,7 @@ const authenticateJWT = require("../middleware/jwt_decode");
 const router = Router();
 
 router.route("/sign_up_author").post(signUpAuthor);
-router.get("/get_one_user/:authorId", authenticateJWT, getAnAuthor);
+router.get("/get_one_user", authenticateJWT, getAnAuthor);
 router.get("/get_all_users", authenticateJWT, findAllUsers);
 router.get("/search_author", authenticateJWT, search_author);
 router.patch("/update_users", authenticateJWT, updateUser);

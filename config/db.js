@@ -1,10 +1,11 @@
 const mongoose = require("mongoose");
 
-const uri = "mongodb://127.0.0.1:27017/test";
+const live_uri =
+  "mongodb+srv://sunnyele:IkpabiEle90510@cluster0.ol0kx.mongodb.net/book_Store_App?retryWrites=true&w=majority&appName=Cluster0";
 
 const dbConnect = async () => {
   try {
-    await mongoose.connect(uri);
+    await mongoose.connect(live_uri);
     console.log("connected successfully to db");
   } catch (error) {
     console.log(error);

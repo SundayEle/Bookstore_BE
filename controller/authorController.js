@@ -60,22 +60,17 @@ const signUpAuthor = async (req, res) => {
 
 const getAnAuthor = async (req, res) => {
   try {
-    const oneUser = await authorModel
-      .findById(req.params.authorId)
+    const author = await authorModel
+      .findById(req.user._id)
       .populate("books", "likedBooks");
-
-    const author = await authorModel.findById(req.user._id);
 
     if (!author) {
       return res.status(404).send("Author not found!");
     }
-    if (!oneUser) {
-      return res.status(404).json({ message: "User not found" });
-    }
 
     return res.status(200).json({
-      message: `Found author ${oneUser.userName} successfully!`,
-      data: oneUser,
+      message: `Found author ${author.userName} successfully!`,
+      data: author,
     });
   } catch (error) {
     return res.status(404).json({
