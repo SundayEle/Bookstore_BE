@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
+const environment = require("../env/environmentVar");
 
-const live_uri =
-  "mongodb+srv://sunnyele:IkpabiEle90510@cluster0.ol0kx.mongodb.net/book_Store_App?retryWrites=true&w=majority&appName=Cluster0";
+const live_uri = environment.MONGODB_URI;
 
 const dbConnect = async () => {
   try {
